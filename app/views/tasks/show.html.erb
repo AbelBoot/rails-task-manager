@@ -1,0 +1,9 @@
+<h2>Details of the task.</h2>
+<%= @task.title %>
+<%= @task.details %>
+
+<%= link_to "Edit the task", edit_task_path(@task)  %>
+
+<!-- Good to put a link here, but maybe not necessary,
+we can put it in the controller. -->
+<%= link_to "retour", tasks_path %>

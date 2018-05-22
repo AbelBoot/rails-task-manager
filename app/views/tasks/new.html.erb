@@ -1,0 +1,25 @@
+This works well, but be careful, the action and method are very
+important. For the same form but with "edit", not sure if this works,
+check with a good action and the method "patch".
+
+Rails is smart enough that when you click "submit", it goes directly
+on "create". Similarly, it should go to "update" with "edit" (check).
+
+<form action="/tasks" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="task[title]"
+  id="title">
+  </div>
+  <div class="form-group">
+    <label for="text">Details</label>
+    <input type="text" name="task[details]" id="details">
+  </div>
+  <div class="form-group">
+    <input type="submit" class="btn btn-primary">
+  </div>
+</form>
+
+<%= link_to "All tasks", tasks_path %>
+

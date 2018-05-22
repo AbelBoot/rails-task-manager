@@ -1,0 +1,31 @@
+<h1>Tasks#index</h1>
+<p>Find me in app/views/tasks/index.html.erb</p>
+
+<!-- # if we dont iterate, we see a active record instance (?),
+we have to iterate to see the instance!! -->
+<div>
+<% @tasks.each do |task| %>
+   <h3> <%=  task.title %></h3>
+<!--    You need to pass the path to rails.
+   task_path is the path from the router that was stated by us,
+   but it can be directly created by us (we have to check it
+   from the local stuff what are the paths). Then, since it is a dynamic path, we have to insert the id. The id is from the loop below, but it can also be from the controller, in that case, we cannot forget the @. -->
+   <p><%=   link_to task.title, task_path(task) %></p>
+  <br>
+
+  <%= link_to delete_task_path(task), method: :delete do %>
+    <i class="far fa-trash-alt"></i>
+  <% end %>
+    <% end %>
+    <br>
+</div>
+<%= link_to "Create a new task", new_task_path %>
+
+<!-- <script>
+  trash = document.getElementById("trash");
+  trash.addEventListener("click", (event) => {
+
+  })
+
+</script> -->
+
